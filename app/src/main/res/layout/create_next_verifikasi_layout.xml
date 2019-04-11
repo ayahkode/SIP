@@ -48,6 +48,7 @@
                     android:textColor="@color/colorBlack" />
 
                 <EditText
+                    android:id="@+id/txt_verifikasi_nama"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2.5" />
@@ -66,6 +67,7 @@
                     android:textColor="@color/colorBlack" />
 
                 <EditText
+                    android:id="@+id/txt_verifikasi_ttl"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2.5" />
@@ -84,6 +86,7 @@
                     android:textColor="@color/colorBlack" />
 
                 <EditText
+                    android:id="@+id/txt_verifikasi_usia"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2.5"
@@ -103,6 +106,7 @@
                     android:textColor="@color/colorBlack" />
 
                 <EditText
+                    android:id="@+id/txt_verifikasi_jeniskelamin"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2.5" />
@@ -121,6 +125,7 @@
                     android:textColor="@color/colorBlack" />
 
                 <EditText
+                    android:id="@+id/txt_verifikasi_statuspernikahan"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2.5" />
@@ -139,6 +144,7 @@
                     android:textColor="@color/colorBlack" />
 
                 <EditText
+                    android:id="@+id/txt_verifikasi_pekerjaan"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2.5" />
@@ -151,12 +157,33 @@
 
                 <TextView
                     android:layout_width="0dp"
-                    android:layout_height="50dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="7. Jumlah Anak dan Data anak : "
+                    android:text="7. Penghasilan perbulan : "
                     android:textColor="@color/colorBlack" />
 
                 <EditText
+                    android:id="@+id/txt_verifikasi_pendapatan_bulanan"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2.5" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:text="8. Jumlah Anak dan Data anak : "
+                    android:textColor="@color/colorBlack" />
+
+                <EditText
+                    android:id="@+id/txt_verifikasi_jumlahanak"
                     android:layout_width="0dp"
                     android:layout_height="100dp"
                     android:layout_weight="2.5"
@@ -172,10 +199,11 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="8. No HP : "
+                    android:text="9. No HP : "
                     android:textColor="@color/colorBlack" />
 
                 <EditText
+                    android:id="@+id/txt_verifikasi_nohp"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2.5" />
@@ -190,10 +218,11 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="9. Alamat : "
+                    android:text="10. Alamat : "
                     android:textColor="@color/colorBlack" />
 
                 <EditText
+                    android:id="@+id/txt_verifikasi_alamat"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2.5" />
@@ -213,6 +242,7 @@
                     android:textColor="@color/colorBlack" />
 
                 <EditText
+                    android:id="@+id/txt_verifikasi_status_tempat_tinggal"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2.5" />
@@ -231,6 +261,7 @@
                     android:textColor="@color/colorBlack" />
 
                 <EditText
+                    android:id="@+id/txt_verifikasi_biaya_kontrakansewa"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2.5" />
@@ -249,6 +280,7 @@
                     android:textColor="@color/colorBlack" />
 
                 <EditText
+                    android:id="@+id/txt_verifikasi_bantuan_lain"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2.5" />
@@ -267,6 +299,7 @@
                     android:textColor="@color/colorBlack" />
 
                 <EditText
+                    android:id="@+id/txt_verifikasi_kontak_orang_terdekat"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2.5" />
@@ -285,6 +318,7 @@
                     android:textColor="@color/colorBlack" />
 
                 <EditText
+                    android:id="@+id/txt_verifikasi_masalah_yang_dihadapi"
                     android:layout_width="0dp"
                     android:layout_height="100dp"
                     android:layout_weight="2.5" />
@@ -304,6 +338,7 @@
                     android:textColor="@color/colorBlack" />
 
                 <EditText
+                    android:id="@+id/txt_verifikasi_upaya_yangdilakukan"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2.5" />
@@ -323,6 +358,7 @@
                     android:textColor="@color/colorBlack" />
 
                 <EditText
+                    android:id="@+id/txt_verifikasi_rekomendasi_keprogram_sip"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2.5" />
@@ -341,6 +377,7 @@
                     android:textColor="@color/colorBlack" />
 
                 <EditText
+                    android:id="@+id/txt_verifikasi_pengamatan_visual_rumah"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2.5" />
@@ -360,6 +397,7 @@
                     android:textColor="@color/colorBlack" />
 
                 <EditText
+                    android:id="@+id/txt_verifikasi_track_record"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2.5" />
@@ -379,6 +417,7 @@
                     android:textColor="@color/colorBlack" />
 
                 <EditText
+                    android:id="@+id/txt_verifikasi_persetuju_publikasi_foto"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
@@ -398,6 +437,7 @@
                     android:textColor="@color/colorBlack" />
 
                 <EditText
+                    android:id="@+id/txt_verifikasi_usul_verifikator"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2.5" />
@@ -418,6 +458,7 @@
                     android:textColor="@color/colorBlack" />
 
                 <EditText
+                    android:id="@+id/txt_verifikasi_catatan_tambahan"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2.5" />

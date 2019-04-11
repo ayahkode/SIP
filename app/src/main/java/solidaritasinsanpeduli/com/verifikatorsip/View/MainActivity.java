@@ -40,12 +40,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void NavigationModule(){
+
         navInputVerifikasi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Fragment selectFragment = FragmentInputVerifikasi.newInstance();
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.frame_layout, selectFragment);
+                transaction.replace(R.id.frame_layout, FragmentInputVerifikasi.newInstance());
                 transaction.commit();
                 imgInputVerifikasi.setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary));
                 imgReportVerifikasi.setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.colorGrey));
@@ -57,9 +57,8 @@ public class MainActivity extends AppCompatActivity {
         navReportVerifikasi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Fragment selectFragment = FragmentReportVerifikasi.newInstance();
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.frame_layout, selectFragment);
+                transaction.replace(R.id.frame_layout, FragmentReportVerifikasi.newInstance());
                 transaction.commit();
                 imgInputVerifikasi.setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.colorGrey));
                 imgReportVerifikasi.setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary));
@@ -70,9 +69,8 @@ public class MainActivity extends AppCompatActivity {
         navProfileVerifikator.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Fragment selectFragment = FragmentProfileVerifikator.newInstance();
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.frame_layout, selectFragment);
+                transaction.replace(R.id.frame_layout, FragmentProfileVerifikator.newInstance());
                 transaction.commit();
                 imgProfileVerifikator.setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary));
                 imgInputVerifikasi.setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.colorGrey));

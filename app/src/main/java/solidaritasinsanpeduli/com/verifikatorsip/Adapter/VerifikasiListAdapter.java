@@ -2,7 +2,6 @@ package solidaritasinsanpeduli.com.verifikatorsip.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.icu.util.ValueIterator;
 import android.support.design.widget.BottomSheetDialog;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -19,7 +18,7 @@ import solidaritasinsanpeduli.com.verifikatorsip.Model.PermohonanModel;
 import solidaritasinsanpeduli.com.verifikatorsip.R;
 import solidaritasinsanpeduli.com.verifikatorsip.View.LembarVerifikasiActivity;
 
-public class PermohonanAdapter extends RecyclerView.Adapter<PermohonanAdapter.ViewHolder> {
+public class VerifikasiListAdapter extends RecyclerView.Adapter<VerifikasiListAdapter.ViewHolder> {
     private List<PermohonanModel> permohonanModelList;
     private int rowLayout;
     private Context context;
@@ -27,7 +26,7 @@ public class PermohonanAdapter extends RecyclerView.Adapter<PermohonanAdapter.Vi
     public BottomSheetDialog dialog;
 
 
-    public PermohonanAdapter(List<PermohonanModel> permohonanModel, int rowLayout, Context context) {
+    public VerifikasiListAdapter(List<PermohonanModel> permohonanModel, int rowLayout, Context context) {
         this.permohonanModelList = permohonanModel;
         this.rowLayout = rowLayout;
         this.context = context;
@@ -35,8 +34,8 @@ public class PermohonanAdapter extends RecyclerView.Adapter<PermohonanAdapter.Vi
 
 
     @Override
-    public PermohonanAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
-                                                           int viewType) {
+    public VerifikasiListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
+                                                               int viewType) {
         view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_list_pemohon, parent, false);
         return new ViewHolder(view);
     }

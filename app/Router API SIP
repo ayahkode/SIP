@@ -1,0 +1,180 @@
+<?php
+
+use Slim\Http\Request;
+use Slim\Http\Response;
+
+// Routes
+
+$app->get('/getKotaPemohon', function (Request $request, Response $response, array $args) {
+    $sth = $this->db->prepare("SELECT * FROM tb_kota"); 
+    if($sth->execute()){
+        $result = $sth->fetchAll();
+        return $this->response->write(json_encode(['error'=> false,'result' =>$result]));
+    } else {
+        return $this->$response = $response->withStatus(404)->write('Not Found');
+    }
+});
+
+
+//status 0 = disetujui, 1 = Menunggu verifikasi, 2 = Selesai
+$app->get('/getDataPelaporan', function (Request $request, Response $response, array $args) {
+        
+    $sth = $this->db->prepare("SELECT dataPelaporan.id, dataPelaporan.nama_pelapor, dataPelaporan.alamat_pelapor, dataPelaporan.telp_pelapor, dataPelaporan.nama_pemohon,
+dataPelaporan.usia_pemohon, dataPelaporan.alamat_pemohon, dataPelaporan.ntelp_pemohon, dataPelaporan.alasan_pengajuan, kategoriPermohonan.jenis_permohonan AS kategori_permohonan,dataPelaporan.status, dataPelaporan.tanggal FROM tb_data_pelaporan as dataPelaporan
+JOIN tb_kategory_permohonan as kategoriPermohonan ON  kategoriPermohonan.id = dataPelaporan.kategori_permohonan
+ORDER BY dataPelaporan.status ASC");
+    if($sth->execute()){
+        $result = $sth->fetchAll();
+        return $this->response->write(json_encode(['error'=> false,'result' =>$result]));
+    } else {
+        return $this->$response = $response->getBody("result")->write('Not Found');
+    }
+    
+});
+
+$app->get('/getVerifikasi', function (Request $request, Response $response, array $args) {
+        
+    $sth = $this->db->prepare("SELECT * FROM tb_verifikasi");
+    if($sth->execute()){
+        $result = $sth->fetchAll();
+        return $this->response->write(json_encode(['error'=> false,'result' =>$result]));
+    } else {
+        return $this->$response = $response->getBody("result")->write('Not Found');
+    }
+    
+});
+
+$app->get('/getVerifikator', function (Request $request, Response $response, array $args) {
+        
+    $sth = $this->db->prepare("SELECT * FROM tb_verifikator");
+    if($sth->execute()){
+        $result = $sth->fetchAll();
+        return $this->response->write(json_encode(['error'=> false,'result' =>$result]));
+    } else {
+        return $this->$response = $response->getBody("result")->write('Not Found');
+    }
+    
+});
+
+
+//post
+
+$app->post('/postDataPelaporan', function (Request $request, Response $response, array $args) {
+    $add_data_pelaporan = $request->getParsedBody();
+    $sql = "INSERT INTO `tb_data_pelaporan` (`nama_pelapor`, `alamat_pelapor`, `telp_pelapor`, `nama_pemohon`, `usia_pemohon`, `alamat_pemohon`, `ntelp_pemohon`,`alasan_pengajuan`, `kategori_permohonan`, `status`) VALUES (:nama_pelapor, :alamat_pelapor, :telp_pelapor, :nama_pemohon, :usia_pemohon, :alamat_pemohon, :telp_pemohon, :alasan_pengajuan, :kategori_permohonan, :status)";
+    $stmt = $this->db->prepare($sql);
+    
+    $stmt->bindValue(
+    $data = [
+        ":nama_pelapor" => $add_data_pelaporan["nama_pelapor"],
+        ":alamat_pelapor" => $add_data_pelaporan["alamat_pelapor"],
+        ":telp_pelapor" => $add_data_pelaporan["telp_pelapor"],
+        ":nama_pemohon" => $add_data_pelaporan["nama_pemohon"],
+        ":usia_pemohon" => $add_data_pelaporan["usia_pemohon"],
+        ":alamat_pemohon" => $add_data_pelaporan["alamat_pemohon"],
+        ":telp_pemohon" => $add_data_pelaporan["telp_pemohon"],
+        ":alasan_pengajuan" => $add_data_pelaporan["alasan_pengajuan"],
+        ":kategori_permohonan" => $add_data_pelaporan["kategori_permohonan"],
+        ":status" => $add_data_pelaporan["status"]
+    ]);
+     
+    if($stmt->execute($data)){
+       return $response->withJson(["status" => "success", "result" => "1"], 200);
+    }else{
+    return $response->withJson(["status" => "failed", "result" => "0"], 200);
+    }
+});
+
+$app->post('/postDataVerifikasi', function (Request $request, Response $response, array $args) {
+    $add_data_verifikasi = $request->getParsedBody();
+    $sql = "INSERT INTO `tb_verifikasi` (`id`,
+    `kategori_id`, 
+    `id_pemohon`, 
+    `nama`, 
+    `tempat_tanggal_lahir`, 
+    `usia`, 
+    `jenis_kelamin`, 
+    `status_perkawinan`, 
+    `pekerjaan`, 
+    `jumlah_anak`, 
+    `no_hp`, 
+    `alamat_tempat_tinggal`, 
+    `lama_tinggal_sekarang`, 
+    `status_tempat_tinggal`, 
+    `biaya_sewa`, 
+    `pendapatan_perbulan`, 
+    `bantuan_lain`, 
+    `kontak_orang_terdekat`, 
+    `masalah`, 
+    `upaya`, 
+    `rekomendasi`, 
+    `pengamatan_visual`, 
+    `track_record`, 
+    `persetujuan_foto`, 
+    `catatan_tambahan`, 
+    `usul_verifikator`) VALUES 
+        (NULL, 
+        :kategori_id, 
+        :id_pemohon, 
+        :nama, 
+        :tempat_tanggal_lahir, 
+        :usia, 
+        :jenis_kelamin, 
+        :status_perkawinan, 
+        :pekerjaan, 
+        :jumlah_anak, 
+        :no_hp, 
+        :alamat_tempat_tinggal, 
+        :lama_tinggal_sekarang, 
+        :status_tempat_tinggal, 
+        :biaya_sewa, 
+        :pendapatan_perbulan, 
+        :bantuan_lain, 
+        :kontak_orang_terdekat, 
+        :masalah, 
+        :upaya, 
+        :rekomendasi, 
+        :pengamatan_visual, 
+        :track_record, 
+        :persetujuan_foto, 
+        :catatan_tambahan, 
+        :usul_verifikator)";
+        $stmt = $this->db->prepare($sql);
+    
+    $stmt->bindValue(
+    $data = [
+        ":kategori_id" => $add_data_verifikasi["kategori_id"],
+        ":id_pemohon" => $add_data_verifikasi["id_pemohon"],
+        ":nama" => $add_data_verifikasi["nama"],
+        ":tempat_tanggal_lahir" => $add_data_verifikasi["tempat_tanggal_lahir"],
+        ":usia" => $add_data_verifikasi["usia"],
+        ":jenis_kelamin" => $add_data_verifikasi["jenis_kelamin"],
+        ":status_perkawinan" => $add_data_verifikasi["status_perkawinan"],
+        ":pekerjaan" => $add_data_verifikasi["pekerjaan"],
+        ":jumlah_anak" => $add_data_verifikasi["jumlah_anak"],
+        ":no_hp" => $add_data_verifikasi["no_hp"],
+        ":alamat_tempat_tinggal" => $add_data_verifikasi["alamat_tempat_tinggal"],
+        ":lama_tinggal_sekarang" => $add_data_verifikasi["lama_tinggal_sekarang"],
+        ":status_tempat_tinggal" => $add_data_verifikasi["status_tempat_tinggal"],
+        ":biaya_sewa" => $add_data_verifikasi["biaya_sewa"],
+        ":pendapatan_perbulan" => $add_data_verifikasi["pendapatan_perbulan"],
+        ":bantuan_lain" => $add_data_verifikasi["bantuan_lain"],
+        ":kontak_orang_terdekat" => $add_data_verifikasi["kontak_orang_terdekat"],
+        ":masalah" => $add_data_verifikasi["masalah"],
+        ":upaya" => $add_data_verifikasi["upaya"],
+        ":rekomendasi" => $add_data_verifikasi["rekomendasi"],
+        ":pengamatan_visual" => $add_data_verifikasi["pengamatan_visual"],
+        ":track_record" => $add_data_verifikasi["track_record"],
+        ":persetujuan_foto" => $add_data_verifikasi["persetujuan_foto"],
+        ":catatan_tambahan" => $add_data_verifikasi["catatan_tambahan"],
+        ":usul_verifikator" => $add_data_verifikasi["usul_verifikator"]
+    ]);
+     
+    if($stmt->execute($data)){
+       return $response->withJson(["status" => "success", "result" => "1"], 200);
+    }else{
+    return $response->withJson(["status" => "failed", "result" => "0"], 200);
+    }
+});
+
+?>
