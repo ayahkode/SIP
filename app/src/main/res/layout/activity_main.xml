@@ -35,7 +35,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="2"
                     android:gravity="center"
-                    android:text="Bagster"
+                    android:text="SIP"
                     android:textColor="@color/colorWhite"
                     android:textSize="28dp"
                     android:textStyle="" />

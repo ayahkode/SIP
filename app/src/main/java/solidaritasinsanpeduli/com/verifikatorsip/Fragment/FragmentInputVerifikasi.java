@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -55,6 +56,12 @@ public class FragmentInputVerifikasi extends Fragment {
     EditText txtTelpPelapor;
     Spinner spinKategoryBantuan;
 
+
+    @BindView(R.id.progress_permohonan)
+    View progressBarPermohonan;
+    @BindView(R.id.view_permohonan)
+    View viewPermohonan;
+
     private List<PermohonanModel> permohonanModelList;
     private PermohonanAdapter permohonanAdapter;
     private PermohonanModel permohonanModel;
@@ -81,7 +88,7 @@ public class FragmentInputVerifikasi extends Fragment {
         ButterKnife.bind(this, view);
         AndroidNetworking.initialize(this.getActivity().getApplicationContext());
 
-        getDataPermohonan();
+        getDataPermohonan(1);
         fabInputDataPermohonan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -133,7 +140,7 @@ public class FragmentInputVerifikasi extends Fragment {
                             public void onResponse(Response response) {
                                 Log.d(TAG, "onResponse: " + response.getResult());
                                 if (response.getResult().equals("1")) {
-                                    getDataPermohonan();
+                                    getDataPermohonan(1);
                                     dialog.dismiss();
                                     Toast.makeText(getContext(), response.getStatus(), Toast.LENGTH_SHORT).show();
                                 } else {
@@ -163,10 +170,10 @@ public class FragmentInputVerifikasi extends Fragment {
         dialog.show();
     }
 
-    public void getDataPermohonan() {
+    public void getDataPermohonan(int idKota) {
         permohonanModelList = new ArrayList<>();
         AndroidNetworking.initialize(getContext());
-        AndroidNetworking.get("https://algoritmakopi.com/sip_api/public/getDataPelaporan")
+        AndroidNetworking.get("https://algoritmakopi.com/sip_api/public/getDataPermohonan/"+idKota)
                 .setTag(this)
                 .setPriority(Priority.HIGH)
                 .build()
@@ -174,6 +181,8 @@ public class FragmentInputVerifikasi extends Fragment {
                     @Override
                     public void onResponse(ResponsePermohonan responsePermohonan) {
                         if (responsePermohonan.getResult().size() > 0) {
+                            progressBarPermohonan.setVisibility(View.GONE);
+                            viewPermohonan.setVisibility(View.VISIBLE);
                             for (int i = 0; i < responsePermohonan.getResult().size(); i++) {
 
                                 permohonanModel = new PermohonanModel(responsePermohonan.getResult().get(i).getKategoriPermohonan(),

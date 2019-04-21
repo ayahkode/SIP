@@ -17,6 +17,7 @@ import java.util.List;
 
 import solidaritasinsanpeduli.com.verifikatorsip.Model.PermohonanModel;
 import solidaritasinsanpeduli.com.verifikatorsip.R;
+import solidaritasinsanpeduli.com.verifikatorsip.View.DetailPermohonanActivity;
 import solidaritasinsanpeduli.com.verifikatorsip.View.LembarVerifikasiActivity;
 
 public class PermohonanAdapter extends RecyclerView.Adapter<PermohonanAdapter.ViewHolder> {
@@ -45,8 +46,9 @@ public class PermohonanAdapter extends RecyclerView.Adapter<PermohonanAdapter.Vi
     public void onBindViewHolder(ViewHolder holder, final int position) {
 
         holder.txtKategoriPermohonan.setText("Kategori : "+permohonanModelList.get(position).getKategoriPermohonan());
-        holder.txtNamaPemohon.setText(String.valueOf(permohonanModelList.get(position).getNamaPemohon()));
-        holder.txtTanggalPermohonan.setText(String.valueOf(permohonanModelList.get(position).getTanggal()));
+        holder.txtNamaPemohon.setText(String.valueOf("Nama Pemohon : "+permohonanModelList.get(position).getNamaPemohon()));
+        holder.txtAlamatPermohonan.setText(String.valueOf("Alamat Pemohon : "+permohonanModelList.get(position).getAlamatPemohon()));
+        holder.txtNoTelpPermohonan.setText(String.valueOf("Nomer HP : "+permohonanModelList.get(position).getNtelpPemohon()));
 
         if (permohonanModelList.get(position).getStatus().equals("1")){
             holder.txtStatusPermohonan.setText("Menunggu verifikasi");
@@ -58,7 +60,7 @@ public class PermohonanAdapter extends RecyclerView.Adapter<PermohonanAdapter.Vi
                 @Override
                 public void onClick(View view) {
                     // viewNextInputVerifikator();
-                    Intent intent = new Intent(context, LembarVerifikasiActivity.class);
+                    Intent intent = new Intent(context, DetailPermohonanActivity.class);
                     intent.putExtra("idPermohonan", permohonanModelList.get(position).getId());
                     intent.putExtra("idKategory", permohonanModelList.get(position).getKategoriPermohonan());
                     context.startActivity(intent);
@@ -82,7 +84,8 @@ public class PermohonanAdapter extends RecyclerView.Adapter<PermohonanAdapter.Vi
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView txtKategoriPermohonan;
         TextView txtNamaPemohon;
-        TextView txtTanggalPermohonan;
+        TextView txtAlamatPermohonan;
+        TextView txtNoTelpPermohonan;
         TextView txtStatusPermohonan;
 
         CardView cvPermohonan;
@@ -90,7 +93,8 @@ public class PermohonanAdapter extends RecyclerView.Adapter<PermohonanAdapter.Vi
             super(v);
             txtKategoriPermohonan = (TextView) itemView.findViewById(R.id.txt_kategori_permohonan);
             txtNamaPemohon = (TextView) itemView.findViewById(R.id.txt_nama_pemohon);
-            txtTanggalPermohonan = (TextView) itemView.findViewById(R.id.txt_tanggal);
+            txtAlamatPermohonan = (TextView) itemView.findViewById(R.id.txt_alamat_pemohon);
+            txtNoTelpPermohonan = (TextView) itemView.findViewById(R.id.txt_notelp_pemohon);
             txtStatusPermohonan = (TextView) itemView.findViewById(R.id.txt_status_permohonan);
             cvPermohonan = (CardView) itemView.findViewById(R.id.cv_permohonan);
         }

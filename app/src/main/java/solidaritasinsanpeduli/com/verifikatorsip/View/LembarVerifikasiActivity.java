@@ -60,9 +60,11 @@ public class LembarVerifikasiActivity extends AppCompatActivity {
         txtVerifikasiUsulVerifikator = (TextView) findViewById(R.id.txt_verifikasi_usul_verifikator);
         txtVerifikasiCatatanTambahan = (TextView) findViewById(R.id.txt_verifikasi_catatan_tambahan);
         txtVerifikasPendapatanBulanan = (TextView) findViewById(R.id.txt_verifikasi_pendapatan_bulanan);
+
         Intent intent = getIntent();
         final String idPermohonan = intent.getStringExtra("idPermohonan");
         final String namaKategory = intent.getStringExtra("idKategory");
+
         if (namaKategory.equals("KESEHATAN")){
             idKategory = "1";
             btnKirim.setOnClickListener(new View.OnClickListener() {

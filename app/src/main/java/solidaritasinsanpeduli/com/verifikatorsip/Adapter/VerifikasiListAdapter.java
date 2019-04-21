@@ -89,7 +89,7 @@ public class VerifikasiListAdapter extends RecyclerView.Adapter<VerifikasiListAd
             super(v);
             txtKategoriPermohonan = (TextView) itemView.findViewById(R.id.txt_kategori_permohonan);
             txtNamaPemohon = (TextView) itemView.findViewById(R.id.txt_nama_pemohon);
-            txtTanggalPermohonan = (TextView) itemView.findViewById(R.id.txt_tanggal);
+            txtTanggalPermohonan = (TextView) itemView.findViewById(R.id.txt_alamat_pemohon);
             txtStatusPermohonan = (TextView) itemView.findViewById(R.id.txt_status_permohonan);
             cvPermohonan = (CardView) itemView.findViewById(R.id.cv_permohonan);
         }

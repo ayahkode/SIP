@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     CardView navProfileVerifikator;
     @BindView(R.id.img_navigation_cashier)
     ImageButton imgProfileVerifikator;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
