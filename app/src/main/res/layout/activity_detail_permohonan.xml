@@ -5,26 +5,165 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
+        android:id="@+id/progress_detail_permohonan"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical">
+        <ProgressBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/view_detail_permohonan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:background="@color/colorPrimary">
+        android:orientation="vertical">
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
+            android:layout_margin="15dp"
             app:cardCornerRadius="10dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:orientation="vertical">
                 <TextView
-                    android:id="@+id/txt_nama_pemohon"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:textStyle="bold"
+                    android:textSize="20dp"
+                    android:text="Pelapor"/>
+                <TextView
+                    android:id="@+id/txt_nama_detail_pelapor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:textStyle="bold"
                     android:text="nama"/>
+                <TextView
+                    android:id="@+id/txt_telp_detail_pelapor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:text="Telp"/>
+                <TextView
+                    android:id="@+id/txt_alamat_detail_pelapor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:text="Alamat"/>
+
+
             </LinearLayout>
 
         </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp"
+            app:cardCornerRadius="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:textStyle="bold"
+                    android:textSize="20dp"
+                    android:text="Pemohon"/>
+                <TextView
+                    android:id="@+id/txt_nama_detail_pemohon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:textStyle="bold"
+                    android:text="nama"/>
+                <TextView
+                    android:id="@+id/txt_usia_detail_pemohon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:text="Usia"/>
+                <TextView
+                    android:id="@+id/txt_telp_detail_pemohon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:text="Telp"/>
+                <TextView
+                    android:id="@+id/txt_alamat_detail_pemohon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:text="Alamat"/>
+
+                <TextView
+                    android:id="@+id/txt_kategori_detail_pemohon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:text="Kategori Pemohon"/>
+
+                <TextView
+                    android:id="@+id/txt_alasan_pengajuan_detail_pemohon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:text="Kategori Pemohon"/>
+
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:orientation="horizontal">
+
+
+            <LinearLayout
+                android:id="@+id/view_verifikasi_pemohon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/circle_button_greendark"
+                android:layout_margin="15dp"
+                android:elevation="5dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="15dp"
+                    android:src="@drawable/ic_mode_edit_black_24dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="5dp"
+                    android:paddingRight="15dp"
+                    android:paddingBottom="5dp"
+                    android:text="Verifikasi"
+                    android:textColor="@color/colorWhite" />
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
 
 </RelativeLayout>

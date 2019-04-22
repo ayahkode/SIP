@@ -3,6 +3,7 @@ package solidaritasinsanpeduli.com.verifikatorsip.Adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.icu.util.ValueIterator;
+import android.net.Uri;
 import android.support.design.widget.BottomSheetDialog;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -56,17 +57,36 @@ public class PermohonanAdapter extends RecyclerView.Adapter<PermohonanAdapter.Vi
         } else  if (permohonanModelList.get(position).getStatus().equals("0")){
             holder.txtStatusPermohonan.setText("Disetujui");
             holder.txtStatusPermohonan.setBackgroundResource(R.drawable.circle_button_green);
-            holder.cvPermohonan.setOnClickListener(new View.OnClickListener() {
+            holder.viewDetail.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     // viewNextInputVerifikator();
                     Intent intent = new Intent(context, DetailPermohonanActivity.class);
                     intent.putExtra("idPermohonan", permohonanModelList.get(position).getId());
                     intent.putExtra("idKategory", permohonanModelList.get(position).getKategoriPermohonan());
+                    intent.putExtra("alamatPelapor", permohonanModelList.get(position).getAlamatPelapor());
+                    intent.putExtra("alasanPengajuan", permohonanModelList.get(position).getAlasanPengajuan());
+                    intent.putExtra("NamaPelapor", permohonanModelList.get(position).getNamaPelapor());
+                    intent.putExtra("namaPemohon", permohonanModelList.get(position).getNamaPemohon());
+                    intent.putExtra("telpPemohon", permohonanModelList.get(position).getNtelpPemohon());
+                    intent.putExtra("telpPelapor", permohonanModelList.get(position).getTelpPelapor());
+                    intent.putExtra("status", permohonanModelList.get(position).getStatus());
+                    intent.putExtra("usiaPemohon", permohonanModelList.get(position).getUsiaPemohon());
+                    intent.putExtra("tanggal", permohonanModelList.get(position).getTanggal());
+                    context.startActivity(intent);
+                }
+            });
+            holder.viewCall.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    // viewNextInputVerifikator();
+                    Intent intent = new Intent(Intent.ACTION_DIAL);
+                    intent.setData(Uri.parse("tel:" +permohonanModelList.get(position).getNtelpPemohon()));
                     context.startActivity(intent);
                 }
             });
         } else  if (permohonanModelList.get(position).getStatus().equals("2")){
+            holder.cvPermohonan.setVisibility(View.GONE);
             holder.txtStatusPermohonan.setText("Selesai");
             holder.txtStatusPermohonan.setBackgroundResource(R.drawable.circle_button_grey);
         } else {
@@ -87,6 +107,8 @@ public class PermohonanAdapter extends RecyclerView.Adapter<PermohonanAdapter.Vi
         TextView txtAlamatPermohonan;
         TextView txtNoTelpPermohonan;
         TextView txtStatusPermohonan;
+        View viewCall;
+        View viewDetail;
 
         CardView cvPermohonan;
         public ViewHolder(View v) {
@@ -97,6 +119,9 @@ public class PermohonanAdapter extends RecyclerView.Adapter<PermohonanAdapter.Vi
             txtNoTelpPermohonan = (TextView) itemView.findViewById(R.id.txt_notelp_pemohon);
             txtStatusPermohonan = (TextView) itemView.findViewById(R.id.txt_status_permohonan);
             cvPermohonan = (CardView) itemView.findViewById(R.id.cv_permohonan);
+
+            viewCall = (View) itemView.findViewById(R.id.view_call_pemohon);
+            viewDetail = (View) itemView.findViewById(R.id.view_view_detail_pemohon);
         }
     }
 
