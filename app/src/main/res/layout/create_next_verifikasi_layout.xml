@@ -43,7 +43,8 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
+                    android:padding="2dp"
                     android:text="1. Nama Lengkap : "
                     android:textColor="@color/colorBlack" />
 
@@ -51,7 +52,7 @@
                     android:id="@+id/txt_verifikasi_nama"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2.5" />
+                    android:layout_weight="2" />
             </LinearLayout>
 
             <LinearLayout
@@ -62,7 +63,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:text="2. Tempat, Tanggal Lahir : "
                     android:textColor="@color/colorBlack" />
 
@@ -70,7 +71,7 @@
                     android:id="@+id/txt_verifikasi_ttl"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2.5" />
+                    android:layout_weight="2" />
             </LinearLayout>
 
             <LinearLayout
@@ -81,6 +82,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:padding="2dp"
                     android:layout_weight="1"
                     android:text="3. Usia : "
                     android:textColor="@color/colorBlack" />
@@ -90,7 +92,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2.5"
-                    android:inputType="textMultiLine" />
+                    android:inputType="numberDecimal" />
             </LinearLayout>
 
             <LinearLayout
@@ -101,7 +103,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:text="4. Jenis Kelamin : "
                     android:textColor="@color/colorBlack" />
 
@@ -109,7 +111,7 @@
                     android:id="@+id/txt_verifikasi_jeniskelamin"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2.5" />
+                    android:layout_weight="2" />
             </LinearLayout>
 
             <LinearLayout
@@ -120,7 +122,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:text="5. Status Pernikahan : "
                     android:textColor="@color/colorBlack" />
 
@@ -128,7 +130,7 @@
                     android:id="@+id/txt_verifikasi_statuspernikahan"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2.5" />
+                    android:layout_weight="2" />
             </LinearLayout>
 
             <LinearLayout
@@ -158,7 +160,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:text="7. Penghasilan perbulan : "
                     android:textColor="@color/colorBlack" />
 
@@ -166,7 +168,8 @@
                     android:id="@+id/txt_verifikasi_pendapatan_bulanan"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2.5" />
+                    android:inputType="numberDecimal"
+                    android:layout_weight="2" />
             </LinearLayout>
 
 
@@ -178,7 +181,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="50dp"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:text="8. Jumlah Anak dan Data anak : "
                     android:textColor="@color/colorBlack" />
 
@@ -186,8 +189,8 @@
                     android:id="@+id/txt_verifikasi_jumlahanak"
                     android:layout_width="0dp"
                     android:layout_height="100dp"
-                    android:layout_weight="2.5"
-                    android:inputType="textMultiLine" />
+                    android:layout_weight="2"
+                    android:inputType="numberDecimal" />
             </LinearLayout>
 
             <LinearLayout
@@ -206,6 +209,7 @@
                     android:id="@+id/txt_verifikasi_nohp"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:inputType="phone"
                     android:layout_weight="2.5" />
             </LinearLayout>
 
@@ -225,7 +229,9 @@
                     android:id="@+id/txt_verifikasi_alamat"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2.5" />
+                    android:layout_weight="2.5"
+                    android:maxLines="20"
+                    android:inputType="textMultiLine"/>
             </LinearLayout>
 
 
@@ -237,7 +243,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:text="1. 1. Status Tempat Tinggal : "
                     android:textColor="@color/colorBlack" />
 
@@ -245,7 +251,7 @@
                     android:id="@+id/txt_verifikasi_status_tempat_tinggal"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2.5" />
+                    android:layout_weight="2" />
             </LinearLayout>
 
             <LinearLayout
@@ -264,6 +270,7 @@
                     android:id="@+id/txt_verifikasi_biaya_kontrakansewa"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
                     android:layout_weight="2.5" />
             </LinearLayout>
 
@@ -275,7 +282,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:text="1. 4. Lembaga/perorangan yang pernah membantu? : "
                     android:textColor="@color/colorBlack" />
 
@@ -283,7 +290,9 @@
                     android:id="@+id/txt_verifikasi_bantuan_lain"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2.5" />
+                    android:maxLines="20"
+                    android:inputType="textMultiLine"
+                    android:layout_weight="2" />
             </LinearLayout>
 
             <LinearLayout
@@ -294,7 +303,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:text="1. 5. Orang terdekat yang bisa dihubungi : "
                     android:textColor="@color/colorBlack" />
 
@@ -302,6 +311,8 @@
                     android:id="@+id/txt_verifikasi_kontak_orang_terdekat"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:maxLines="20"
+                    android:inputType="textMultiLine"
                     android:layout_weight="2.5" />
             </LinearLayout>
 
@@ -313,7 +324,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:text="1. 6. Masalah yang dihadapi : "
                     android:textColor="@color/colorBlack" />
 
@@ -321,6 +332,8 @@
                     android:id="@+id/txt_verifikasi_masalah_yang_dihadapi"
                     android:layout_width="0dp"
                     android:layout_height="100dp"
+                    android:maxLines="20"
+                    android:inputType="textMultiLine"
                     android:layout_weight="2.5" />
             </LinearLayout>
 
@@ -341,6 +354,8 @@
                     android:id="@+id/txt_verifikasi_upaya_yangdilakukan"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:maxLines="20"
+                    android:inputType="textMultiLine"
                     android:layout_weight="2.5" />
             </LinearLayout>
 
@@ -361,6 +376,8 @@
                     android:id="@+id/txt_verifikasi_rekomendasi_keprogram_sip"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:maxLines="20"
+                    android:inputType="textMultiLine"
                     android:layout_weight="2.5" />
             </LinearLayout>
 
@@ -380,6 +397,8 @@
                     android:id="@+id/txt_verifikasi_pengamatan_visual_rumah"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:maxLines="20"
+                    android:inputType="textMultiLine"
                     android:layout_weight="2.5" />
             </LinearLayout>
 
@@ -400,6 +419,8 @@
                     android:id="@+id/txt_verifikasi_track_record"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:maxLines="20"
+                    android:inputType="textMultiLine"
                     android:layout_weight="2.5" />
             </LinearLayout>
 
@@ -420,6 +441,8 @@
                     android:id="@+id/txt_verifikasi_persetuju_publikasi_foto"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:maxLines="20"
+                    android:inputType="textMultiLine"
                     android:layout_weight="1" />
             </LinearLayout>
 
@@ -440,6 +463,8 @@
                     android:id="@+id/txt_verifikasi_usul_verifikator"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:maxLines="20"
+                    android:inputType="textMultiLine"
                     android:layout_weight="2.5" />
             </LinearLayout>
 
@@ -461,6 +486,8 @@
                     android:id="@+id/txt_verifikasi_catatan_tambahan"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:maxLines="20"
+                    android:inputType="textMultiLine"
                     android:layout_weight="2.5" />
             </LinearLayout>
 

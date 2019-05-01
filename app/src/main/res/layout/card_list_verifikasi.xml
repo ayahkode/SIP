@@ -14,6 +14,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
             android:orientation="vertical">
 
             <LinearLayout
@@ -23,14 +24,44 @@
                 android:padding="5dp">
 
 
-                <TextView
-                    android:id="@+id/txt_kategori_verifikasi"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Title"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="15dp"
-                    android:textStyle="bold" />
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/txt_kategori_verifikasi"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="2"
+                        android:text="Title"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/txt_status_verifikasi"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:background="@drawable/circle_button_blue"
+                            android:paddingLeft="10dp"
+                            android:paddingTop="5dp"
+                            android:paddingRight="10dp"
+                            android:paddingBottom="5dp"
+                            android:text="Menunggu Persetujuan"
+                            android:textColor="@color/colorBlack" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -39,15 +70,7 @@
                     android:padding="5dp">
 
                     <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.9"
-                        android:text="Nama Pemohon :"
-                        android:textColor="@color/colorBlack"
-                        android:textSize="12dp" />
-
-                    <TextView
-                        android:id="@+id/txt_nama_pemohon"
+                        android:id="@+id/txt_nama_verifikasi"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
@@ -56,35 +79,102 @@
                         android:textSize="12dp" />
                 </LinearLayout>
 
-                <TextView
-                    android:id="@+id/txt_tanggal_verifikasi"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Tanggal"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="12dp" />
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+
+                    <TextView
+                        android:id="@+id/txt_alamat_verifikasi"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text=""
+                        android:textColor="@color/colorBlack"
+                        android:textSize="12dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:id="@+id/txt_notelp_verifikasi"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text=""
+                        android:textColor="@color/colorBlack"
+                        android:textSize="12dp" />
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_gravity="right">
+                android:gravity="right"
+                android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/txt_status_verifikasi"
+                <LinearLayout
+                    android:id="@+id/view_view_detail_verifikasi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:layout_margin="10dp"
-                    android:textColor="@color/colorBlack"
-                    android:background="@drawable/circle_button_blue"
-                    android:text="Menunggu Persetujuan" />
+                    android:background="@drawable/circle_button_grey"
+                    android:layout_margin="5dp"
+                    android:orientation="horizontal">
 
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:paddingLeft="15dp"
+                        android:src="@drawable/ic_pageview_black_24dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:paddingLeft="5dp"
+                        android:paddingTop="5dp"
+                        android:paddingRight="15dp"
+                        android:paddingBottom="5dp"
+                        android:text="View Detail"
+                        android:textColor="@color/colorWhite" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/view_call_verifikasi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/circle_button_greendark"
+                    android:layout_margin="5dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:paddingLeft="15dp"
+                        android:src="@drawable/ic_local_phone_black_24dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:paddingLeft="5dp"
+                        android:paddingTop="5dp"
+                        android:paddingRight="15dp"
+                        android:paddingBottom="5dp"
+                        android:text="Call"
+                        android:textColor="@color/colorWhite" />
+                </LinearLayout>
             </LinearLayout>
+
+
         </LinearLayout>
     </android.support.v7.widget.CardView>
 </LinearLayout>

@@ -69,52 +69,40 @@ public class DetailPermohonanActivity extends AppCompatActivity {
         Intent intent = getIntent();
         final String idPermohonan = intent.getStringExtra("idPermohonan");
         final String namaKategory = intent.getStringExtra("idKategory");
+        final String alamatPelapor = intent.getStringExtra("alamatPelapor");
+        final String alamatPemohon = intent.getStringExtra("alamatPemohon");
+        final String alasanPengajuan = intent.getStringExtra("alasanPengajuan");
+        final String NamaPelapor = intent.getStringExtra("NamaPelapor");
+        final String namaPemohon = intent.getStringExtra("namaPemohon");
+        final String telpPemohon = intent.getStringExtra("telpPemohon");
+        final String telpPelapor = intent.getStringExtra("telpPelapor");
+        final String status = intent.getStringExtra("status");
+        final String usiaPemohon = intent.getStringExtra("usiaPemohon");
+        final String tanggal = intent.getStringExtra("tanggal");
 
-        getDataPermohonan(idPermohonan);
+        txtNamaDetailPelopor.setText("Nama : " + NamaPelapor);
+        txtTelpDetailPelopor.setText("Telp : " + telpPelapor);
+        txtAlamatDetailPelopor.setText("Alamat : " + alamatPelapor);
+
+
+        txtNamaDetailPemohon.setText("Nama : " + namaPemohon);
+        txtTelpDetailPemohon.setText("Telp : " + telpPemohon);
+        txtAlamatDetailPemohon.setText("Alamat : " + alamatPemohon);
+        txtUsiaDetailPemohon.setText("Usia : " + usiaPemohon);
+        txtKategoriDetailPemohon.setText("Kategory : " + namaKategory);
+        txtAlasanPengajuanDetailPemohon.setText("Alasan : " + alasanPengajuan);
+
+        viewVerifikasiPermohonan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), LembarVerifikasiActivity.class);
+                intent.putExtra("idPermohonan", idPermohonan);
+                intent.putExtra("idKategory", namaKategory);
+                startActivity(intent);
+            }
+        });
+        Log.d(TAG, "onCreate: " + idPermohonan);
     }
 
-    public void getDataPermohonan(String idPermohonan) {
-        AndroidNetworking.initialize(getApplicationContext());
-        AndroidNetworking.get("https://algoritmakopi.com/sip_api/public/getDataPermohonanByIdPermohonan/"+idPermohonan)
-                .setTag(this)
-                .setPriority(Priority.HIGH)
-                .build()
-                .getAsObject(ResponsePermohonan.class, new ParsedRequestListener<ResponsePermohonan>() {
-                    @Override
-                    public void onResponse(final ResponsePermohonan responsePermohonan) {
-                        if (responsePermohonan.getResult().size() > 0) {
-                            progressBarPermohonan.setVisibility(View.GONE);
-                            viewPermohonan.setVisibility(View.VISIBLE);
 
-                            txtNamaDetailPelopor.setText("Nama : " + responsePermohonan.getResult().get(0).getNamaPelapor());
-                            txtTelpDetailPelopor.setText("Telp : " + responsePermohonan.getResult().get(0).getTelpPelapor());
-                            txtAlamatDetailPelopor.setText("Alamat : " + responsePermohonan.getResult().get(0).getAlamatPelapor());
-
-
-                            txtNamaDetailPemohon.setText("Nama : " + responsePermohonan.getResult().get(0).getNamaPelapor());
-                            txtTelpDetailPemohon.setText("Telp : " + responsePermohonan.getResult().get(0).getTelpPelapor());
-                            txtAlamatDetailPemohon.setText("Alamat : " + responsePermohonan.getResult().get(0).getAlamatPelapor());
-                            txtUsiaDetailPemohon.setText("Nama : " + responsePermohonan.getResult().get(0).getUsiaPemohon());
-                            txtKategoriDetailPemohon.setText("Telp : " + responsePermohonan.getResult().get(0).getKategoriPermohonan());
-                            txtAlasanPengajuanDetailPemohon.setText("Alasan : " + responsePermohonan.getResult().get(0).getAlasanPengajuan());
-
-                            viewVerifikasiPermohonan.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View view) {
-                                    Intent intent = new Intent(getApplicationContext(), LembarVerifikasiActivity.class);
-                                    intent.putExtra("idPermohonan", responsePermohonan.getResult().get(0).getId());
-                                    intent.putExtra("idKategory", responsePermohonan.getResult().get(0).getKategoriPermohonan());
-                                    startActivity(intent);
-                                }
-                            });
-                        }
-                    }
-
-                    @Override
-                    public void onError(ANError anError) {
-                        // handle error
-                        Log.d(TAG, "onError: " + anError.toString());
-                    }
-                });
-    }
 }

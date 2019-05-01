@@ -65,6 +65,7 @@ public class PermohonanAdapter extends RecyclerView.Adapter<PermohonanAdapter.Vi
                     intent.putExtra("idPermohonan", permohonanModelList.get(position).getId());
                     intent.putExtra("idKategory", permohonanModelList.get(position).getKategoriPermohonan());
                     intent.putExtra("alamatPelapor", permohonanModelList.get(position).getAlamatPelapor());
+                    intent.putExtra("alamatPemohon", permohonanModelList.get(position).getAlamatPemohon());
                     intent.putExtra("alasanPengajuan", permohonanModelList.get(position).getAlasanPengajuan());
                     intent.putExtra("NamaPelapor", permohonanModelList.get(position).getNamaPelapor());
                     intent.putExtra("namaPemohon", permohonanModelList.get(position).getNamaPemohon());
