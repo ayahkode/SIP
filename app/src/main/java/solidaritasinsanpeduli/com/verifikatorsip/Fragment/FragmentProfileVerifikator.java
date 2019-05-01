@@ -92,7 +92,7 @@ public class FragmentProfileVerifikator  extends Fragment {
                             txtPhoneUser.setText("Phone : " +responseUserProfile.getResult().get(0).getNoTelp());
 
                             txtUsername.setText("Username : " +responseUserProfile.getResult().get(0).getUsername());
-                            txtPasswordUser.setText("Password : " +responseUserProfile.getResult().get(0).getPassword());
+                            txtPasswordUser.setText(responseUserProfile.getResult().get(0).getPassword());
 
                         }
                     }
